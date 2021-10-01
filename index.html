@@ -43,7 +43,7 @@
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-    // map() creates a new array of the same length of the original ray, modifying the values of the new array somehow
+    // map() creates a new array of the same length as the original array, modifying the values of the new array somehow
     const fullNames = inventors.map(inventor => inventor.first + ' ' + inventor.last);
     console.log(fullNames);
 
@@ -86,9 +86,13 @@
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-    const totalElements = data.reduce((total, data) => {
-        return total + 1;
-    }, 0);
+    const totalElements = data.reduce((total, item) => {
+        if(!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+    }, {}); // start with a blank object
     console.log(totalElements);
 
   </script>
